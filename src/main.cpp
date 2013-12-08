@@ -10,6 +10,7 @@ using namespace std;
 
 int main() {
 
+  cout << "Witam w mainie" << endl;
   Graph<string> g;
   Node<string> n1 = g.addNode(), n2 = g.addNode(), n3 = g.addNode(), 
     n4 = g.addNode();
@@ -23,10 +24,15 @@ int main() {
   g.addArc(n3,n2);
 
   g.printAdjMatrix();
+
+
   cout << endl;
+
   for(unsigned i; i < g.nodeList.size(); i++) {
-    cout << g.nodeList[i].id << endl;
+    cout << g.nodeList[i]->id << endl;
+    cout << *g.nodeList[i]->pointer << endl;
   }
+
 
   Graph<string>::iterator it;
   it = g.begin();

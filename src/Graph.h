@@ -17,7 +17,7 @@ template <class T> class Graph {
     int currentNodeId;
     map<string, Node<T> > graphMap;
     vector<vector<bool> > adjMatrix;
-    vector<Node<T> > nodeList;
+    vector<Node<T> *> nodeList;
 
     Graph() {
       currentNodeId = 0;
@@ -25,7 +25,7 @@ template <class T> class Graph {
 
     Node<T> addNode() {
 
-      Node<T> newNode(currentNodeId);
+      Node<T> *newNode = new Node<T>(currentNodeId);
       vector<bool> newRow;
 
       for(int i = 0; i < currentNodeId; i++) {
@@ -38,9 +38,16 @@ template <class T> class Graph {
         adjMatrix[i].push_back(false);
       }
 
+      for(int i = 0; i < nodeList.size(); i++) {
+      }
+      cout << endl;
+
       nodeList.push_back(newNode);
+
+      for(int i = 0; i < nodeList.size(); i++) {
+      }
       currentNodeId++;
-      return newNode;
+      return *newNode;
 
     }
 
@@ -70,7 +77,7 @@ template <class T> class Graph {
         }
 
         void findFirst(Graph<T> *g) {
-          currentNode = &g->nodeList[0];
+          currentNode = g->nodeList[0];
           cout 
             << "Jestem na wierzchołku " 
             << currentNode->id 
@@ -88,7 +95,7 @@ template <class T> class Graph {
         }
 
         void findFirst(Graph<T> *g, int node) {
-          currentNode = &g->nodeList[node];
+          currentNode = g->nodeList[node];
           cout 
             << "Jestem na wierzchołku " 
             << currentNode->id 
