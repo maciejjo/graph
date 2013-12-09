@@ -36,6 +36,16 @@ template <class T> class Graph {
       currentNodeId = 0;
     }
 
+    ~Graph() {
+      for(int i = 0; i < currentNodeId; i++)
+      {
+        delete nodeList[i]->next_list;
+        delete nodeList[i]->prev_list;
+        delete nodeList[i]->pointer;
+        delete nodeList[i];
+      }
+    }
+
     Node<T> addNode() {
 
       Node<T> *newNode = new Node<T>(currentNodeId);
@@ -165,7 +175,8 @@ template <class T> class Graph {
         void operator ++(int) {
           result.pop();
           currentNodeNum = result.top();
-          currentNode = graph->nodeList[currentNodeNum];
+          if(currentNodeNum != -1)
+            currentNode = graph->nodeList[currentNodeNum];
         }
 
         bool operator != (iterator i) {

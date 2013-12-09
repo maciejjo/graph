@@ -13,7 +13,9 @@ using namespace std;
 int main() {
 
   Graph<string> g;
-  Node<string> n1 = g.addNode(), n2 = g.addNode(), n3 = g.addNode();
+  Node<string> n1 = g.addNode();
+  Node<string> n2 = g.addNode();
+  Node<string> n3 = g.addNode();
 
   *n1 = "Poznań";
   *n2 = "Berlin";
@@ -46,8 +48,6 @@ int main() {
   for(list<Node<string> >::iterator i=prevs.begin(); i != prevs.end(); i++)
     cout << *i->pointer << " ";
   cout << endl;
-    
-
 
   return 0;
 }

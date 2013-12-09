@@ -21,6 +21,9 @@ template <class T> class Node {
       pointer = new T;
     }
 
+    ~Node() {
+    }
+
     void addNext(Node<T> element) {
       next_list->push_back(element);
     }
