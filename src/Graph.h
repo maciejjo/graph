@@ -60,6 +60,9 @@ template <class T> class Graph {
 
     void addArc(Node<T> first, Node<T> second) {
       adjMatrix[first.id][second.id] = true;
+      first.addNext(second);
+      second.addPrev(first);
+
     }
     
     bool containsPath(Node<T> first, Node<T> second) {
