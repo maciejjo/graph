@@ -61,6 +61,21 @@ template <class T> class Graph {
     void addArc(Node<T> first, Node<T> second) {
       adjMatrix[first.id][second.id] = true;
     }
+    
+    bool containsPath(Node<T> first, Node<T> second) {
+      if(adjMatrix[first.id][second.id])
+        return true;
+
+      bool foundPath = false;
+      for(int i = 0; i < currentNodeId; i++) {
+        if(adjMatrix[first.id][i] && containsPath(*nodeList[i], second)) {
+          foundPath = true;
+          break;
+        }
+      }
+      if(foundPath) return true;
+      else return false;
+    }
 
     void printAdjMatrix() {
      for(int i = 0; i < currentNodeId; i++) {

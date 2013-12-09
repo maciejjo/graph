@@ -3,6 +3,6 @@
 
 DONE: 
   Metoda addNode, metoad addArc, metody begin i end, iterator przeglądający graf algorytmem DFS,
-  Wyjątek
+  Wyjątek sprawdzanie istnienia ścieżki.
 TODO: 
-  sprawdzanie istnienia ścieżki, metody nexts i prevs, etykiety.
+  metody nexts i prevs, etykiety.

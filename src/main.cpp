@@ -31,6 +31,9 @@ int main() {
 
   }
   
+  if(g.containsPath(n1, n3)) cout << "Między " << *n1.pointer << " a " << *n3.pointer << " jest ścieżka" << endl;
+  if(g.containsPath(n3, n1)) cout << "Między " << *n3.pointer << " a " << *n1.pointer << " jest ścieżka" << endl;
+  
 
   return 0;
 }
