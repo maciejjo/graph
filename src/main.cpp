@@ -49,5 +49,23 @@ int main() {
     cout << *i->pointer << " ";
   cout << endl;
 
+  
+  Graph<int> g2;
+  g2.addNode().setLabel("A");
+  g2.addNode().setLabel("B");
+  g2.addNode().setLabel("C");
+  g2.addNode().setLabel("D");
+  *g2["A"] = 45;
+  *g2["B"] = 54;
+  *g2["C"] = 73;
+  *g2["D"] = 100;
+  g2.addArc(g2["A"], g2["B"]);
+  g2.addArc(g2["B"], g2["C"]);
+  g2.addArc(g2["B"], g2["D"]);
+
+  Graph<int>::iterator it2(g2.currentNodeId, &g2);
+  for(it2 = g2.begin(); it2 != g2.end(); it2++) {
+    cout << *it2 << endl;
+  }
   return 0;
 }

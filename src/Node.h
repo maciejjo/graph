@@ -5,17 +5,21 @@
 
 using namespace std;
 
+template <class T> class Graph;
+
 template <class T> class Node {
 
   public:
     T *pointer;
     int id;
+    Graph<T> *g;
     list<Node<T> > *next_list;
     list<Node<T> > *prev_list;
 
 
-    Node(int NodeId) {
+    Node(int NodeId, Graph<T> *graph) {
       id = NodeId; 
+      g = graph; 
       next_list = new list<Node<T> >;
       prev_list = new list<Node<T> >;
       pointer = new T;
@@ -42,6 +46,10 @@ template <class T> class Node {
 
     T& operator*() { 
       return *pointer; 
+    }
+
+    void setLabel(string label) {
+      g->graphMap.insert(pair<string,Node<T>* >(label, this));
     }
 };
 

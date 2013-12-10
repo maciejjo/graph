@@ -28,7 +28,7 @@ template <class T> class Graph {
   public:
 
     int currentNodeId;
-    map<string, Node<T> > graphMap;
+    map<string, Node<T> *> graphMap;
     vector<vector<bool> > adjMatrix;
     vector<Node<T> *> nodeList;
 
@@ -48,7 +48,7 @@ template <class T> class Graph {
 
     Node<T> addNode() {
 
-      Node<T> *newNode = new Node<T>(currentNodeId);
+      Node<T> *newNode = new Node<T>(currentNodeId, this);
       vector<bool> newRow;
 
       for(int i = 0; i < currentNodeId; i++) {
@@ -98,6 +98,11 @@ template <class T> class Graph {
       cout << endl; 
      }
     }
+
+    Node<T>& operator [](string label) {
+      return *graphMap[label];
+    }
+    
 
     class iterator {
 
